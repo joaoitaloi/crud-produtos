@@ -1,0 +1,99 @@
+# Catálogo de Produtos
+
+API REST desenvolvida com Node.js, Express e SQL Server para gerenciamento de produtos e consulta de categorias.
+
+## Funcionalidades
+
+- Cadastrar produtos.
+- Listar todos os produtos.
+- Buscar produto pelo ID.
+- Atualizar produtos.
+- Excluir produtos.
+- Verificar IDs inválidos e produtos inexistentes.
+- Associar produtos a categorias.
+- Consultar produtos e categorias com INNER JOIN, LEFT JOIN e RIGHT JOIN.
+
+## Tecnologias
+
+- Node.js e Express.
+- SQL Server LocalDB.
+- Pacotes mssql, msnodesqlv8 e dotenv.
+- Microsoft ODBC Driver 18 for SQL Server.
+- Autenticação do Windows.
+
+## Requisitos
+
+- Windows com Node.js e npm instalados.
+- SQL Server LocalDB instalado.
+- SQL Server Management Studio (SSMS).
+- Microsoft ODBC Driver 18 for SQL Server.
+
+## Como executar
+
+### 1. Instalar as dependências
+
+Abra o terminal na pasta do projeto e execute:
+
+```bash
+npm install
+```
+
+### 2. Preparar o banco
+
+No SSMS, conecte ao servidor:
+
+```text
+(localdb)\MSSQLLocalDB
+```
+
+Selecione Autenticação do Windows e execute o arquivo `database.sql` para criar o banco e suas tabelas.
+
+### 3. Configurar o ambiente
+
+Copie `.env.example` para um arquivo chamado `.env`.
+
+Configure:
+
+```env
+DB_SERVER=(localdb)\MSSQLLocalDB
+DB_NAME=LojaDB
+```
+
+A conexão utiliza a conta do Windows que executa o Node.js. Essa conta precisa ter acesso ao banco.
+
+### 4. Iniciar a API
+
+```bash
+node app.js
+```
+
+A API estará disponível em:
+
+http://localhost:3000
+
+Mantenha o terminal aberto durante os testes.
+
+## Endpoints
+
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| GET | /produtos | Listar produtos |
+| GET | /produtos/:id | Buscar produto pelo ID |
+| POST | /produtos | Cadastrar produto |
+| PUT | /atualizarProdutos/:id | Atualizar produto |
+| DELETE | /deletarProdutos/:id | Excluir produto |
+| GET | /consultas/inner | Consultar com INNER JOIN |
+| GET | /consultas/left | Consultar com LEFT JOIN |
+| GET | /consultas/right | Consultar com RIGHT JOIN |
+
+
+Para associar uma categoria, substitua `null` por um ID existente na tabela `Categorias`.
+
+No PUT, envie os mesmos campos. Omitir `categoriaId` ou enviar `null` remove a associação anterior.
+
+## Testes
+
+Use o Postman ou REST Client para enviar requisições.
+
+Teste cadastro, consulta, atualização e exclusão. Confira também as respostas para IDs inválidos e produtos inexistentes.
+

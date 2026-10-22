@@ -1,0 +1,40 @@
+### adicionar usuário
+POST http://localhost:3000/produtos
+content-type: application/json
+
+{
+   "nome": "Caneta 43",
+   "preco": 29.90,
+   "quantidade": 20,
+   "categoriaId": "1"
+}
+
+### listar usuários
+GET http://localhost:3000/produtos/
+
+### listar usuário por ID
+GET http://localhost:3000/produtos/1
+
+### Atualizar endereço do candidato
+PUT http://localhost:3000/atualizarProdutos/3
+content-type: application/json
+
+{
+   "nome": "Teclado mecânico",
+   "preco": 429.90,
+   "quantidade": 12,
+   "categoriaId": "4"
+}
+
+### Deletar usuário
+DELETE http://localhost:3000/deletarProdutos/3
+content-type: application/json
+
+### INNER JOIN
+GET http://localhost:3000/consultas/inner
+
+### LEFT JOIN
+GET http://localhost:3000/consultas/left
+
+### RIGHT JOIN
+GET http://localhost:3000/consultas/right
